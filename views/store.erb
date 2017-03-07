@@ -1,0 +1,36 @@
+<div class="center">
+  <h1> <%= @store.name %> </h1>
+  <p class="place"> <%= @store.city %>, <%= @store.state %></p>
+</div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2 class="center" id ="black">Brands this store carries: </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <% if @store.brands().any?() %>
+      <ul>
+      <% @store.brands.each do |brand| %>
+      <li><%= brand.name() %></li>
+      <% end %>
+      </ul>
+      <% else %>
+      <p> This store is not carrying any brands yet.</p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-2">
+      <p><a class="btn btn-warning btn-lg btn-block" href="/stores/<%= @store.id() %>/edit">Edit</a></p>
+    </div>
+    <div class="col-sm-2 col-sm-offset-1">
+      <form action="/stores/<%= @store.id() %>" method="post">
+        <input name="_method" type="hidden" value="delete">
+        <button type="submit" class="btn btn-danger btn-lg btn-block">Delete</button>
+      </form><br>
+    </div>
+    <div class="col-sm-2 col-sm-offset-1">
+      <p><a class="btn btn-primary btn-lg btn-block" href="/stores">Back</a></p>
+    </div>
+  </div>

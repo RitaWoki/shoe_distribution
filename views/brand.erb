@@ -1,0 +1,35 @@
+<div class="center">
+  <h1> <%= @brand.name %> </h1>
+</div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2 class="center" id="black">Stores carrying this brand: </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <% if @brand.stores().any?() %>
+      <ul>
+      <% @brand.stores.each do |store| %>
+      <li><%= store.name() %>, <%= store.city() %>, <%= store.state() %></li>
+      <% end %>
+      </ul>
+      <% else %>
+      <p> This brand is not currently carried by any stores </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-2">
+      <p><a class="btn btn-warning btn-lg btn-block" href="/brands/<%= @brand.id() %>/edit">Edit</a></p>
+    </div>
+    <div class="col-sm-2 col-sm-offset-1">
+      <form action="/brands/<%= @brand.id() %>" method="post">
+        <input name="_method" type="hidden" value="delete">
+        <button type="submit" class="btn btn-danger btn-lg btn-block">Delete</button>
+      </form><br>
+    </div>
+    <div class="col-sm-2 col-sm-offset-1">
+      <p><a class="btn btn-primary btn-lg btn-block" href="/brands">Back</a></p>
+    </div>
+  </div>

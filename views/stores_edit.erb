@@ -1,0 +1,28 @@
+<div class= "row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <form action="/stores/<%= @store.id() %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+
+      <h2>Edit this Store:</h2>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="<%= @store.name %>">
+      </div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" name="city" value="<%= @store.city %>">
+      </div>
+      <div class="form-group">
+        <label for="state">State:</label>
+        <input type="text" name="state" value="<%= @store.state %>">
+      </div>
+      <div class="form-group">
+        <label for="brand_ids[]" class="active">Which brands does this store carry?</label><br>
+        <% @brands.each() do |brand| %>
+          <input type="checkbox" name = "brand_ids[]" value="<%= brand.id()%>" <%= 'checked' if brand.stores.include?(@store) %> > <%= brand.name() %><br>
+        <% end %>
+      </div>
+      <button type='submit'>Submit</button>
+    </form>
+  </div>
+</div>

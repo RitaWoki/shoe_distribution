@@ -1,0 +1,62 @@
+.jumbotron {
+  text-align: center;
+  background-color: inherit;
+}
+
+.jumbotron h1 {
+  color: #ff9933;
+    font-size: 7em;
+}
+
+h1 {
+  color: #ff9933;
+  text-align: center;
+  font-size:8em;
+}
+
+h2 {
+  font-size: 3em;
+  color: #ff9933;
+}
+
+@media (max-width: 992px){
+  img {
+    display: none;
+  }
+}
+
+#black {
+  color: black;
+}
+
+.center {
+  text-align: center;
+}
+
+.row {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 4em;
+}
+
+.pages ul {
+  font-size: 1.5em;
+}
+
+.page-header {
+  font-size: 1.25em;
+}
+
+.place {
+  text-align: center;
+  font-size: 3em;
+  font-style: italic;
+}
+
+.form-group {
+  font-size: 1.5em;
+}

@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+  <% if @brands.any?() %>
+  <h2 class="center">Here are all your brands:</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+  <ul>
+    <% @brands.each do |brand| %>
+    <li><a href='/brands/<%= brand.id() %>'><%= brand.name() %></a>
+    <% end %>
+  </ul>
+  <% else %>
+  <h2 class="title"> You don't have any brands yet. Add some! </h2>
+  <% end %>
+  </div>
+</div>
+<div class= "row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <h2 class="center">Add a Brand:</h2>
+  </div>
+</div>
+<div class= "row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <form action="/brands/new" method="post">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="name">
+      </div>
+      <div class="form-group">
+        <label for="brand_ids[]">Which stores carry this brand?</label><br>
+        <% @stores.each() do |store| %>
+        <input type="checkbox" name="store_ids[]" value="<%= store.id()%>"><%= store.name() %><br>
+      <% end %>
+      </div>
+      <button type='submit' class="btn btn-success btn-lg">Add Brand</button>
+    </form>
+  </div>
+</div>
